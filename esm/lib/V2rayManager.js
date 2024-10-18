@@ -360,7 +360,7 @@ class V2rayManager {
         account: this.#loadAnyMessage(
           ACCOUNTS[accountType],
           user.account || {},
-          ACCOUNT_PROTO_PATH.torjan
+          ACCOUNT_PROTO_PATH[accountType]
         ),
       },
     });

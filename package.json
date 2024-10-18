@@ -1,6 +1,6 @@
 {
   "name": "v2ray-controller",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A v2ray controller, which can manage v2ray server and client. Use the grpc protocol to communicate with the v2ray server.",
   "main": "cjs/index.js",
   "module": "esm/index.js",
