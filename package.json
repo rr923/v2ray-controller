@@ -1,10 +1,24 @@
 {
   "name": "v2ray-controller",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "A v2ray controller, which can manage v2ray server and client. Use the grpc protocol to communicate with the v2ray server.",
-  "main": "index.js",
+  "main": "cjs/index.js",
+  "module": "esm/index.js",
+  "exports": {
+    ".": {
+      "import": "./esm/index.js",
+      "require": "./cjs/index.js"
+    },
+    "./package.json": "./package.json",
+    "./*": {
+      "import": "./esm/*.js",
+      "require": "./cjs/*.js"
+    }
+  },
   "scripts": {
-    "sync_proto": "node ./bin/sync_proto_files.js",
+    "sync_proto": "rm -fr proto && node ./esm/bin/sync_proto_files.js",
+    "build": "rm -fr cjs && esm2cjs --in esm --out cjs -l error",
+    "all": "npm run sync_proto && npm run build && npm pack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "R.W",
@@ -13,5 +27,8 @@
   "dependencies": {
     "@grpc/grpc-js": "^1.8.14",
     "protobufjs": "^7.2.3"
+  },
+  "devDependencies": {
+    "@alcalzone/esm2cjs": "^1.1.2"
   }
 }
