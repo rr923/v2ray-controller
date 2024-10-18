@@ -1,16 +1,15 @@
 {
-  "name": "v2ray-manager",
+  "name": "v2ray-controller",
   "version": "1.0.0",
-  "description": "A v2ray manager, which can manage v2ray server and client. Use the grpc protocol to communicate with the v2ray server.",
+  "description": "A v2ray controller, which can manage v2ray server and client. Use the grpc protocol to communicate with the v2ray server.",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "sync_proto": "node ./bin/sync_proto_files.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "NPAP STUDIO",
+  "author": "R.W",
   "license": "MIT",
-  "repository" : "https://github.com/NPAPStudio/v2ray-manager",
+  "repository": "https://github.com/rr923/v2ray-controller",
   "dependencies": {
     "@grpc/grpc-js": "^1.8.14",
     "protobufjs": "^7.2.3"
