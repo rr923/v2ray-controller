@@ -8,6 +8,18 @@ A v2ray manager, which can manage v2ray server and client. Use the grpc protocol
 npm install v2ray-manager
 ```
 
+## Scripts
+
+1. sync_proto - extract .proto files from sibling v2ray-core folder
+2. build - create cjs folder to make it compatible with CommonJS
+3. all - sync && build && pack
+
+## Steps to update
+
+1. pull v2ray-core, switch to same tag as v2ray version used
+2. change version from the package.json file
+3. run `npm run all` to create the tarball
+
 ## Example
 
 ```
@@ -15,7 +27,7 @@ import { V2rayManager } from "v2ray-manager";
 
 let v2rayManager = new V2rayManager("localhost:1007");
 
-const main = async () => { 
+const main = async () => {
     //add a trojan Inbound user
     let addInboundUser = await client.addUser("trojan", {
         "level": 0,
